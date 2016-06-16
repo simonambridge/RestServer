@@ -1,0 +1,337 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.datastax.creditcard:datastax-banking-iot:war:0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 68, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building datastax-banking-iot 0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> maven-jetty-plugin:6.1.10:run (default-cli) @ datastax-banking-iot >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ datastax-banking-iot ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ datastax-banking-iot ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ datastax-banking-iot ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /u02/dev/dse_dev/SparkViz/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ datastax-banking-iot ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< maven-jetty-plugin:6.1.10:run (default-cli) @ datastax-banking-iot <<<
+[INFO] 
+[INFO] --- maven-jetty-plugin:6.1.10:run (default-cli) @ datastax-banking-iot ---
+[INFO] Configuring Jetty for project: datastax-banking-iot
+[INFO] Webapp source directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] web.xml file = /u02/dev/dse_dev/SparkViz/src/main/webapp/WEB-INF/web.xml
+[INFO] Classes = /u02/dev/dse_dev/SparkViz/target/classes
+[INFO] Logging to org.slf4j.impl.SimpleLogger(org.mortbay.log) via org.mortbay.log.Slf4jLog
+[INFO] Context path = /datastax-banking-iot
+[INFO] Tmp directory =  determined at runtime
+[INFO] Web defaults = org/mortbay/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] Webapp directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] Starting jetty 6.1.10 ...
+[INFO] jetty-6.1.10
+[INFO] No Transaction manager found - if your webapp requires one, please configure one.
+Jun 16, 2016 10:06:17 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.datastax.restserver.webservice
+Jun 16, 2016 10:06:17 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class com.datastax.restserver.webservice.MainWS
+Jun 16, 2016 10:06:17 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jun 16, 2016 10:06:17 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+[INFO] Started SelectChannelConnector@0.0.0.0:7001
+[INFO] Started Jetty Server
+[INFO] Starting scanner at interval of 10 seconds.
+[INFO] restarting org.mortbay.jetty.plugin.Jetty6PluginWebAppContext@72bfec5c{/datastax-banking-iot,/u02/dev/dse_dev/SparkViz/src/main/webapp}
+[INFO] Webapp source directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] web.xml file = /u02/dev/dse_dev/SparkViz/src/main/webapp/WEB-INF/web.xml
+[INFO] Classes = /u02/dev/dse_dev/SparkViz/target/classes
+[INFO] Context path = /datastax-banking-iot
+[INFO] Tmp directory =  determined at runtime
+[INFO] Web defaults = org/mortbay/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] Webapp directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] No Transaction manager found - if your webapp requires one, please configure one.
+Jun 16, 2016 10:20:39 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.datastax.restserver.webservice
+Jun 16, 2016 10:20:39 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+Jun 16, 2016 10:20:40 PM com.sun.jersey.server.impl.application.RootResourceUriRules <init>
+SEVERE: The ResourceConfig instance does not contain any root resource classes.
+[WARNING] failed jersey-serlvet
+javax.servlet.ServletException: com.sun.jersey.api.container.ContainerException: The ResourceConfig instance does not contain any root resource classes.
+	at org.mortbay.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:437)
+	at org.mortbay.jetty.servlet.ServletHolder.doStart(ServletHolder.java:256)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:39)
+	at org.mortbay.jetty.servlet.ServletHandler.initialize(ServletHandler.java:612)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:139)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1220)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:510)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:448)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:110)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:39)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo$1.filesChanged(AbstractJettyRunMojo.java:409)
+	at org.mortbay.util.Scanner.reportBulkChanges(Scanner.java:493)
+	at org.mortbay.util.Scanner.reportDifferences(Scanner.java:359)
+	at org.mortbay.util.Scanner.scan(Scanner.java:286)
+	at org.mortbay.util.Scanner$1.run(Scanner.java:246)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: com.sun.jersey.api.container.ContainerException: The ResourceConfig instance does not contain any root resource classes.
+	at com.sun.jersey.server.impl.application.RootResourceUriRules.<init>(RootResourceUriRules.java:99)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._initiate(WebApplicationImpl.java:1331)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.access$700(WebApplicationImpl.java:168)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl$13.f(WebApplicationImpl.java:774)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl$13.f(WebApplicationImpl.java:770)
+	at com.sun.jersey.spi.inject.Errors.processWithErrors(Errors.java:193)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.initiate(WebApplicationImpl.java:770)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.initiate(WebApplicationImpl.java:765)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.initiate(ServletContainer.java:489)
+	at com.sun.jersey.spi.container.servlet.ServletContainer$InternalWebComponent.initiate(ServletContainer.java:319)
+	at com.sun.jersey.spi.container.servlet.WebComponent.load(WebComponent.java:605)
+	at com.sun.jersey.spi.container.servlet.WebComponent.init(WebComponent.java:210)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.init(ServletContainer.java:374)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.init(ServletContainer.java:557)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:241)
+	at org.mortbay.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:433)
+	... 16 more
+[ERROR] Nested in javax.servlet.ServletException: com.sun.jersey.api.container.ContainerException: The ResourceConfig instance does not contain any root resource classes.:
+com.sun.jersey.api.container.ContainerException: The ResourceConfig instance does not contain any root resource classes.
+	at com.sun.jersey.server.impl.application.RootResourceUriRules.<init>(RootResourceUriRules.java:99)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._initiate(WebApplicationImpl.java:1331)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.access$700(WebApplicationImpl.java:168)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl$13.f(WebApplicationImpl.java:774)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl$13.f(WebApplicationImpl.java:770)
+	at com.sun.jersey.spi.inject.Errors.processWithErrors(Errors.java:193)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.initiate(WebApplicationImpl.java:770)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.initiate(WebApplicationImpl.java:765)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.initiate(ServletContainer.java:489)
+	at com.sun.jersey.spi.container.servlet.ServletContainer$InternalWebComponent.initiate(ServletContainer.java:319)
+	at com.sun.jersey.spi.container.servlet.WebComponent.load(WebComponent.java:605)
+	at com.sun.jersey.spi.container.servlet.WebComponent.init(WebComponent.java:210)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.init(ServletContainer.java:374)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.init(ServletContainer.java:557)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:241)
+	at org.mortbay.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:433)
+	at org.mortbay.jetty.servlet.ServletHolder.doStart(ServletHolder.java:256)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:39)
+	at org.mortbay.jetty.servlet.ServletHandler.initialize(ServletHandler.java:612)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:139)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1220)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:510)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:448)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:110)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:39)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo$1.filesChanged(AbstractJettyRunMojo.java:409)
+	at org.mortbay.util.Scanner.reportBulkChanges(Scanner.java:493)
+	at org.mortbay.util.Scanner.reportDifferences(Scanner.java:359)
+	at org.mortbay.util.Scanner.scan(Scanner.java:286)
+	at org.mortbay.util.Scanner$1.run(Scanner.java:246)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+[WARNING] Failed startup of context org.mortbay.jetty.plugin.Jetty6PluginWebAppContext@72bfec5c{/datastax-banking-iot,/u02/dev/dse_dev/SparkViz/src/main/webapp}
+javax.servlet.ServletException: com.sun.jersey.api.container.ContainerException: The ResourceConfig instance does not contain any root resource classes.
+	at org.mortbay.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:437)
+	at org.mortbay.jetty.servlet.ServletHolder.doStart(ServletHolder.java:256)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:39)
+	at org.mortbay.jetty.servlet.ServletHandler.initialize(ServletHandler.java:612)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:139)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1220)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:510)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:448)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:110)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:39)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo$1.filesChanged(AbstractJettyRunMojo.java:409)
+	at org.mortbay.util.Scanner.reportBulkChanges(Scanner.java:493)
+	at org.mortbay.util.Scanner.reportDifferences(Scanner.java:359)
+	at org.mortbay.util.Scanner.scan(Scanner.java:286)
+	at org.mortbay.util.Scanner$1.run(Scanner.java:246)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: com.sun.jersey.api.container.ContainerException: The ResourceConfig instance does not contain any root resource classes.
+	at com.sun.jersey.server.impl.application.RootResourceUriRules.<init>(RootResourceUriRules.java:99)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._initiate(WebApplicationImpl.java:1331)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.access$700(WebApplicationImpl.java:168)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl$13.f(WebApplicationImpl.java:774)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl$13.f(WebApplicationImpl.java:770)
+	at com.sun.jersey.spi.inject.Errors.processWithErrors(Errors.java:193)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.initiate(WebApplicationImpl.java:770)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.initiate(WebApplicationImpl.java:765)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.initiate(ServletContainer.java:489)
+	at com.sun.jersey.spi.container.servlet.ServletContainer$InternalWebComponent.initiate(ServletContainer.java:319)
+	at com.sun.jersey.spi.container.servlet.WebComponent.load(WebComponent.java:605)
+	at com.sun.jersey.spi.container.servlet.WebComponent.init(WebComponent.java:210)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.init(ServletContainer.java:374)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.init(ServletContainer.java:557)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:241)
+	at org.mortbay.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:433)
+	... 16 more
+[ERROR] Nested in javax.servlet.ServletException: com.sun.jersey.api.container.ContainerException: The ResourceConfig instance does not contain any root resource classes.:
+com.sun.jersey.api.container.ContainerException: The ResourceConfig instance does not contain any root resource classes.
+	at com.sun.jersey.server.impl.application.RootResourceUriRules.<init>(RootResourceUriRules.java:99)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._initiate(WebApplicationImpl.java:1331)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.access$700(WebApplicationImpl.java:168)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl$13.f(WebApplicationImpl.java:774)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl$13.f(WebApplicationImpl.java:770)
+	at com.sun.jersey.spi.inject.Errors.processWithErrors(Errors.java:193)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.initiate(WebApplicationImpl.java:770)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.initiate(WebApplicationImpl.java:765)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.initiate(ServletContainer.java:489)
+	at com.sun.jersey.spi.container.servlet.ServletContainer$InternalWebComponent.initiate(ServletContainer.java:319)
+	at com.sun.jersey.spi.container.servlet.WebComponent.load(WebComponent.java:605)
+	at com.sun.jersey.spi.container.servlet.WebComponent.init(WebComponent.java:210)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.init(ServletContainer.java:374)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.init(ServletContainer.java:557)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:241)
+	at org.mortbay.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:433)
+	at org.mortbay.jetty.servlet.ServletHolder.doStart(ServletHolder.java:256)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:39)
+	at org.mortbay.jetty.servlet.ServletHandler.initialize(ServletHandler.java:612)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:139)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1220)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:510)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:448)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:110)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:39)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo$1.filesChanged(AbstractJettyRunMojo.java:409)
+	at org.mortbay.util.Scanner.reportBulkChanges(Scanner.java:493)
+	at org.mortbay.util.Scanner.reportDifferences(Scanner.java:359)
+	at org.mortbay.util.Scanner.scan(Scanner.java:286)
+	at org.mortbay.util.Scanner$1.run(Scanner.java:246)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+[INFO] Restart completed at Thu Jun 16 22:20:40 BST 2016
+[INFO] restarting org.mortbay.jetty.plugin.Jetty6PluginWebAppContext@72bfec5c{/datastax-banking-iot,/u02/dev/dse_dev/SparkViz/src/main/webapp}
+[INFO] Webapp source directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] web.xml file = /u02/dev/dse_dev/SparkViz/src/main/webapp/WEB-INF/web.xml
+[INFO] Classes = /u02/dev/dse_dev/SparkViz/target/classes
+[INFO] Context path = /datastax-banking-iot
+[INFO] Tmp directory =  determined at runtime
+[INFO] Web defaults = org/mortbay/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] Webapp directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] No Transaction manager found - if your webapp requires one, please configure one.
+Jun 16, 2016 10:20:49 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.datastax.restserver.webservice
+Jun 16, 2016 10:20:49 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class com.datastax.restserver.webservice.MainWS
+Jun 16, 2016 10:20:49 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jun 16, 2016 10:20:49 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+[INFO] Restart completed at Thu Jun 16 22:20:49 BST 2016
+[INFO] restarting org.mortbay.jetty.plugin.Jetty6PluginWebAppContext@72bfec5c{/datastax-banking-iot,/u02/dev/dse_dev/SparkViz/src/main/webapp}
+[INFO] Webapp source directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] web.xml file = /u02/dev/dse_dev/SparkViz/src/main/webapp/WEB-INF/web.xml
+[INFO] Classes = /u02/dev/dse_dev/SparkViz/target/classes
+[INFO] Context path = /datastax-banking-iot
+[INFO] Tmp directory =  determined at runtime
+[INFO] Web defaults = org/mortbay/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] Webapp directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] No Transaction manager found - if your webapp requires one, please configure one.
+Jun 16, 2016 10:22:09 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.datastax.restserver.webservice
+Jun 16, 2016 10:22:09 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class com.datastax.restserver.webservice.MainWS
+Jun 16, 2016 10:22:09 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jun 16, 2016 10:22:09 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+[INFO] Restart completed at Thu Jun 16 22:22:09 BST 2016
+[INFO] restarting org.mortbay.jetty.plugin.Jetty6PluginWebAppContext@72bfec5c{/datastax-banking-iot,/u02/dev/dse_dev/SparkViz/src/main/webapp}
+[INFO] Webapp source directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] web.xml file = /u02/dev/dse_dev/SparkViz/src/main/webapp/WEB-INF/web.xml
+[INFO] Classes = /u02/dev/dse_dev/SparkViz/target/classes
+[INFO] Context path = /datastax-banking-iot
+[INFO] Tmp directory =  determined at runtime
+[INFO] Web defaults = org/mortbay/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] Webapp directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] No Transaction manager found - if your webapp requires one, please configure one.
+Jun 16, 2016 10:28:09 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.datastax.restserver.webservice
+Jun 16, 2016 10:28:09 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class com.datastax.restserver.webservice.MainWS
+Jun 16, 2016 10:28:09 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jun 16, 2016 10:28:09 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+[INFO] Restart completed at Thu Jun 16 22:28:09 BST 2016
+[INFO] restarting org.mortbay.jetty.plugin.Jetty6PluginWebAppContext@72bfec5c{/datastax-banking-iot,/u02/dev/dse_dev/SparkViz/src/main/webapp}
+[INFO] Webapp source directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] web.xml file = /u02/dev/dse_dev/SparkViz/src/main/webapp/WEB-INF/web.xml
+[INFO] Classes = /u02/dev/dse_dev/SparkViz/target/classes
+[INFO] Context path = /datastax-banking-iot
+[INFO] Tmp directory =  determined at runtime
+[INFO] Web defaults = org/mortbay/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] Webapp directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] Reconfiguring scanner after change to pom.xml ...
+[INFO] No Transaction manager found - if your webapp requires one, please configure one.
+Jun 16, 2016 10:30:49 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.datastax.restserver.webservice
+Jun 16, 2016 10:30:49 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class com.datastax.restserver.webservice.MainWS
+Jun 16, 2016 10:30:49 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jun 16, 2016 10:30:49 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+[INFO] Restart completed at Thu Jun 16 22:30:49 BST 2016
+[INFO] restarting org.mortbay.jetty.plugin.Jetty6PluginWebAppContext@72bfec5c{/datastax-banking-iot,/u02/dev/dse_dev/SparkViz/src/main/webapp}
+[INFO] Webapp source directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] web.xml file = /u02/dev/dse_dev/SparkViz/src/main/webapp/WEB-INF/web.xml
+[INFO] Classes = /u02/dev/dse_dev/SparkViz/target/classes
+[INFO] Context path = /datastax-banking-iot
+[INFO] Tmp directory =  determined at runtime
+[INFO] Web defaults = org/mortbay/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] Webapp directory = /u02/dev/dse_dev/SparkViz/src/main/webapp
+[INFO] No Transaction manager found - if your webapp requires one, please configure one.
+Jun 16, 2016 10:31:19 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.datastax.restserver.webservice
+Jun 16, 2016 10:31:19 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class com.datastax.restserver.webservice.MainWS
+Jun 16, 2016 10:31:19 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jun 16, 2016 10:31:19 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+[INFO] Restart completed at Thu Jun 16 22:31:19 BST 2016
+[INFO] Shutdown hook executing
+[INFO] Shutdown hook complete
+[INFO] Jetty server exiting.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26:49 min
+[INFO] Finished at: 2016-06-16T22:33:05+00:00
+[INFO] Final Memory: 15M/350M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+datastax@dc0vm0:~$ netstat -tulpn | grep 8080
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+tcp6       0      0 :::8080                 :::*                    LISTEN      44701/java      
+datastax@dc0vm0:~$ ps -eaf | grep 44701
+datastax 44701 40921 34 12:36 pts/6    00:00:09 /usr/lib/jvm/zulu-8-amd64/bin/java -classpath /usr/share/maven/boot/plexus-classworlds-2.x.jar -Dclassworlds.conf=/usr/share/maven/bin/m2.conf -Dmaven.home=/usr/share/maven org.codehaus.plexus.classworlds.launcher.Launcher jetty:run
+datastax 44797 44633  0 12:36 pts/7    00:00:00 grep --color=auto 44701
+
+http://104.42.109.110:8080/datastax-banking-iot/rest/getallfraudulenttransactions/123412*
+http://104.42.109.110:8080/datastax-banking-iot/rest/getallfraudulenttransactionsinlastperiod/MONTH
+http://104.42.110.110:8080/datastax-banking-iot/rest/getalltransactions
+

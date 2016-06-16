@@ -1,0 +1,1 @@
+ssh -i $HOME/.ssh/classkey root@54.187.55.145
