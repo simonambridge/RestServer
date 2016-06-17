@@ -81,9 +81,22 @@ public class MainWS {
 		stringOutput = stringOutput + "<TABLE border=\"1\">";
 		int i = 0;
 		while (i < result.size()) {
-			stringOutput = stringOutput + "<TR><TD>";
-			stringOutput = stringOutput + (result.get(i));
-			stringOutput = stringOutput + "</TD></TR>";
+			stringOutput = stringOutput + "<TR>";
+
+			 /* String to split. */
+			String tempString = "";
+			String[] tempStringArray;
+
+			tempString = tempString + (result.get(i));
+
+			String delimiter = ",";
+			tempStringArray = tempString.split(delimiter);
+
+			for(int j =0; j < tempStringArray.length ; j++) {
+				stringOutput = stringOutput + "<TD>";
+				stringOutput = stringOutput + tempStringArray[j] + "</TD>";
+			}
+			stringOutput = stringOutput + "</TR>";
 
 			i++;
 		}
