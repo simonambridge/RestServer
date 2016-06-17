@@ -35,8 +35,8 @@ public class Event {
 
 
 	@Override
-	public String toString() {
-		return "Event [Name=" + name + ", Time=" + time + ", Value =" + value  + "]";
+	public String toString() {                           // only used by HTML output
+		return name + ", " + time + ", " + value;
 	}
 
 }

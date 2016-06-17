@@ -67,6 +67,28 @@ public class MainWS {
 	   return Response.status(Status.OK).entity(result).build();
     }
 
+	@GET
+	@Path("/test")
+	@Produces(MediaType.TEXT_HTML)
+	public String getMyHTMLAsString() {
 
+		logger.info("WebService: test - <no params>");
 
+		List<Event> result = service.getAllEvents();
+
+		String stringOutput = "<!DOCTYPE html> <html lang=''en''> <head> <meta charset=''utf-8''> <title>Hello World</title> </head>";
+		stringOutput = stringOutput + "<H1>sparksensordata.sensordata</H1>";
+		stringOutput = stringOutput + "<TABLE border=\"1\">";
+		int i = 0;
+		while (i < result.size()) {
+			stringOutput = stringOutput + "<TR><TD>";
+			stringOutput = stringOutput + (result.get(i));
+			stringOutput = stringOutput + "</TD></TR>";
+
+			i++;
+		}
+		stringOutput = stringOutput + "</TABLE>";
+
+	return stringOutput;
+	}
 }

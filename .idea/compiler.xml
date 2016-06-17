@@ -17,16 +17,16 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for datastax-banking-iot" enabled="true">
+      <profile default="false" name="Annotation profile for restserver" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="datastax-banking-iot" />
+        <module name="restserver" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="datastax-banking-iot" target="1.7" />
+      <module name="restserver" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
