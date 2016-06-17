@@ -26,6 +26,7 @@ public class getHTML {
         String stringOutput = "<!DOCTYPE html> <html lang=''en''> <head> <meta charset=''utf-8''> <title>Hello World</title> </head>";
         stringOutput = stringOutput + "<H1>sparksensordata.sensordata</H1>";
         stringOutput = stringOutput + "<TABLE border=\"1\">";
+        stringOutput = stringOutput + "<TH>Sensor ID</TH><TH>Timestamp</TH><TH>Value</TH>";
         int i = 0;
         while (i < result.size()) {
             stringOutput = stringOutput + "<TR>";
