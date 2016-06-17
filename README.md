@@ -61,8 +61,27 @@ The RestServer provides hooks to create entry points that can return either of t
 * JSON
 * HTML
 
-##Notes On ReST, Prepared Statements, And The Differences Between CQL And CQL-Solr
-We can query data in a Cassandra database using either CQL or CQL-Solr.
+
+##Set Up Solr with DSE
+
+We use dsetool this time to create a Solr core based on the table that we want to index. In this case it's ```SparkSensoreData.SensorData```.
+
+In a production environment we would only index the columns that we would want to query on. Tip - the schema must exist to run this exercise. If you've jumped here then you've missed creating it.
+
+By default, when you automatically generate resources, existing data is not re-indexed so that you can check and customize the resources before indexing. To override the default and reindex existing data, use the reindex=true option:
+```
+dsetool create_core SparkSensoreData.SensorData generateResources=true reindex=true
+```
+
+You can check that DSE Search is up and running sucessfully by going to ```http://[DSE node]:8983/solr/``` and running queries via the GUI.
+
+
+
+##Notes On ReST, Prepared Statements, And The Differences Between CQL And Solr
+
+We can now query the data in our Cassandra database table ```SparkSensoreData.SensorData``` using either CQL or CQL-Solr.
+
+Time for a quick code review...
 
 ###CQL
 
@@ -96,20 +115,7 @@ And then bind it to the prepared statement:
 ResultSet resultSet = this.session.execute(getAllTransactionsByAmount.bind(solrBindString));
 ```			
 
-##Set Up Solr with DSE
-
-We use dsetool this time to create a Solr core based on the table that we want to index. In this case it's ```SparkSensoreData.SensorData```.
-
-In a production environment we would only index the columns that we would want to query on. Tip - the schema must exist to run this exercise. If you've jumped here then you've missed creating it.
-
-By default, when you automatically generate resources, existing data is not re-indexed so that you can check and customize the resources before indexing. To override the default and reindex existing data, use the reindex=true option:
-```
-dsetool create_core SparkSensoreData.SensorData generateResources=true reindex=true
-```
-
-You can check that DSE Search is up and running sucessfully by going to ```http://[DSE node]:8983/solr/``` and running queries via the GUI.
-
-Now we can query our data using both the CQL protocol or via Solr.
+#!!put a solr query back in to the demo
 
 ##Accessing the Interface
 
