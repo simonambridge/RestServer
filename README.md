@@ -10,7 +10,30 @@ To use the web service, use the following url’s. These will return a json repr
 The sample queries are served by a web service written in Java. The code for this web service is provided in the repo.
 The web service adopts a framework that separates the web, service and data access layers into individual, easily maintainable components.
 
-You'll need to install Maven to compile the code. As the root account use apt-get to install it:
+##Pre-Requisites
+
+###DataStax Enterprise
+
+You'll need DataStax Enterprise (4.8.4 or above recommended) for the integrated Cassandra, Spark and Solr platform.
+
+You will need DSE to be running in "SearchAnalytics" mode - meaning that both Solr and Spark are started when DSE starts. The default behavious is to start only Cassandra, so to change this edit the default dse file ```/etc/default/dse```.
+
+Find where it says ```SPARK_ENABLED=0``` and change it to ```SPARK_ENABLED=1```.
+Do the same for ```SOLR_ENABLED```, setting it to one also.
+
+Save and exit the editor
+Restart DSE
+Run ```dsetool status```. You should see SearchAnalytics as your DC/workload type:
+
+```
+dsetool status
+Note: Ownership information does not include topology, please specify a keyspace. 
+Address       DC      Rack    Workload              Status  State    Load         Owns         Token
+127.0.0.1     DC1     RAC1    SearchAnalytics(JT)   Up      Normal   141.92 MB    100.00%      -1250424544841641002 
+````
+
+###Maven
+You'll also need to install Maven to compile the code. As the root account use apt-get to install it:
 ```
 $ apt-get install maven
 ```
@@ -33,4 +56,64 @@ For example - to run on a server with an IP of 10.0.0.4 and run the service on p
 ```
 $ nohup mvn jetty:run -DcontactPoints=10.0.0.4 -Djetty.port=7001 &
 ```
+
+The RestServer provides hooks to create entry points that can return either of the following:
+* JSON
+* HTML
+
+##Notes On ReST, Prepared Statements, And The Differences Between CQL And CQL-Solr
+We can query data in a Cassandra database using either CQL or CQL-Solr.
+
+###CQL
+
+Using CQL simply substitutes one or more bind variables from the ReST call into a prepared CQL statement.
+
+In this example we create a prepared statement with subsitutions for the Merchant ID and a query date:
+```
+private static final String GET_DAILY_TRANSACTIONS_BY_MERCHANT = "select * from " + merchantDailyRollupTable // SA
+			+ " where merchant = ? and day = ? limit 100";
+```
+And then we can pass in the Merchant ID and a date as bind variables:
+```
+ResultSet resultSet = this.session.execute(getDailyTransactionsByMerchant.bind(merchant, day));
+```
+
+###CQL-Solr
+
+Calls with CQL-Solr behave slightly differently - the entire where clause has to be subsituted as a single variable.
+
+As for a CQL query, we prepare a statement with a substitution variable, but this time for the entire where cause (```solr_query```).
+```
+private static final String GET_ALL_TRANSACTIONS_BY_AMOUNT = "select * from " + rtfapTransactionTable     // SA
+			+ " where solr_query = ? limit 100";
+```		
+We build a Solr query string to bind:
+```
+String solrBindString = "{\"q\":\"*:*\", \"fq\":\"amount:[" + amount + " TO *]\"}}";
+```
+And then bind it to the prepared statement:
+```
+ResultSet resultSet = this.session.execute(getAllTransactionsByAmount.bind(solrBindString));
+```			
+
+##Set Up Solr with DSE
+
+We use dsetool this time to create a Solr core based on the table that we want to index. In this case it's ```SparkSensoreData.SensorData```.
+
+In a production environment we would only index the columns that we would want to query on. Tip - the schema must exist to run this exercise. If you've jumped here then you've missed creating it.
+
+By default, when you automatically generate resources, existing data is not re-indexed so that you can check and customize the resources before indexing. To override the default and reindex existing data, use the reindex=true option:
+```
+dsetool create_core SparkSensoreData.SensorData generateResources=true reindex=true
+```
+
+You can check that DSE Search is up and running sucessfully by going to ```http://[DSE node]:8983/solr/``` and running queries via the GUI.
+
+Now we can query our data using both the CQL protocol or via Solr.
+
+##Accessing the Interface
+
+Assuming that you're running on a single node
+http://127.0.0.1:7001/restserver/rest/html
+
 
