@@ -8,7 +8,7 @@ public class Event {
 
 	private String name;
 	private Date time;
-	private BigDecimal value;
+	private Double value;
 
 	public Event() {
 		super();
@@ -28,8 +28,8 @@ public class Event {
 	}
 
 
-	public BigDecimal getValue() { return value; }
-	public void setValue(BigDecimal value) {
+	public Double getValue() { return value; }
+	public void setValue(Double value) {
 		this.value = value;
 	}
 

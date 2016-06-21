@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 import com.datastax.restserver.model.Event;
 import com.datastax.restserver.service.SearchService;
 import com.datastax.restserver.service.SearchServiceImpl;
-import com.datastax.restserver.pages.getHTML;
+import com.datastax.restserver.pages.*;
 
 @WebService
 @Path("/")
@@ -54,7 +54,7 @@ public class MainWS {
 //	}
 
 	///////////////////////
-	// CQL Queries
+	// CQL Query - JSON
 	///////////////////////
     @GET
 	@Path("/json/")    // SA
@@ -68,6 +68,9 @@ public class MainWS {
 	   return Response.status(Status.OK).entity(result).build();
     }
 
+	///////////////////////
+	// CQL Query - HTML render of getallevents
+	///////////////////////
 	@GET
 	@Path("/html")
 	@Produces(MediaType.TEXT_HTML)
@@ -76,6 +79,19 @@ public class MainWS {
 		String stringOutput = g.getHTML();
 
 	return stringOutput;
+	}
+
+	///////////////////////
+	// HTML status page
+	///////////////////////
+	@GET
+	@Path("/status")
+	@Produces(MediaType.TEXT_HTML)
+	public String getStatusPage() {
+		getStatus g = new getStatus();
+		String stringOutput = g.getStatus();
+
+		return stringOutput;
 	}
 
 

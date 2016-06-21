@@ -102,7 +102,7 @@ public class TransactionDao {
 
 		t.setName(row.getString("name"));
 		t.setTime(row.getDate("time"));
-		t.setValue(row.getDecimal("value"));
+		t.setValue(row.getDouble("value"));
 		return t;
 	}
 }
