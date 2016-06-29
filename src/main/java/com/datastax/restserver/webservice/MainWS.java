@@ -53,20 +53,6 @@ public class MainWS {
 //		return Response.status(Status.OK).entity(result).build();
 //	}
 
-	///////////////////////
-	// CQL Query - JSON
-	///////////////////////
-    @GET
-	@Path("/json/")    // SA
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getAllEvents() {
-
-		logger.info("WebService: getallevents - <no params>");
-
-		List<Event> result = service.getAllEvents();
-
-	   return Response.status(Status.OK).entity(result).build();
-    }
 
 	///////////////////////
 	// CQL Query - HTML render of getallevents
@@ -79,6 +65,21 @@ public class MainWS {
 		String stringOutput = g.getHTML();
 
 	return stringOutput;
+	}
+
+	//////////////////////////
+	// CQL-Solr Query - JSON
+	//////////////////////////
+	@GET
+	@Path("/json/")    // SA
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllEvents() {
+
+		logger.info("WebService: getallevents - <no params>");
+
+		List<Event> result = service.getAllEvents();
+
+		return Response.status(Status.OK).entity(result).build();
 	}
 
 	///////////////////////
