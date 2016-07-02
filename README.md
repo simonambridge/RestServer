@@ -66,10 +66,11 @@ $ nohup mvn jetty:run -DcontactPoints=10.0.0.4 -Djetty.port=7001 &
 
 We use dsetool to create a Solr core based on the table that we want to index. In this case it's ```SparkSensoreData.SensorData```.
 
-This table is an example of a set of data from sensors. It is a simple table:
-Name - the anem of the device e.g. "p100" (Partition Key)
-Time - the time the event was received (CLustering Column)
-Value - the reading or value of the event
+This table is an example of a set of event (time series) data from sensors. It is a simple table:
+
+*Name - the name of the device e.g. "p100" (Partition Key)
+*Time - the time the event was received (Partition Key)
+*Value - the reading or value of the event
 
 In a production environment we would only index the columns that we would want to query on. Tip - the schema must exist to run this exercise. If you've jumped here then you've missed creating it.
 
@@ -101,12 +102,12 @@ You can check that DSE Search is up and running sucessfully by going to ```http:
 
 ###Querying WIth Solr
 
-With CQL you can query the sensor data table using the primary key (name) and clustering column range scan (time) like so:
+With CQL you cant query the sensor data table using a range scan on time because its part of the partiton key - this would fail:
 ```
 SELECT * FROM sparksensordata.sensordata WHERE name='p100' AND time>'2016-07-01 22:52:52';
 ```
 
-But you cant query on the value column because it isn't indexed.
+And you cant query on the value column because it isn't indexed.
 
 Solr integration allows you to search on any column, without needing to know or use a partition key - for example a wild card search on records where value is greater than 1:
 ```
