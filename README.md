@@ -1,6 +1,6 @@
 
 
-# ReST Server - Query Cassandra Data Quickly
+# ReST Server - Query Cassandra Data Quickly Using Java, CQL and Solr
 
 ## Querying Data Using A ReST Web Interface
 
@@ -83,7 +83,14 @@ CREATE TABLE sparksensordata.sensordata (
     value double,
     PRIMARY KEY ((name), time)
 ```
-    
+
+Yiu can manually insert records to play with using a statement like this:
+```
+INSERT INTO sparksensordata.sensordata (name, time ,value) VALUES ('p100', dateof(now()), 1);
+INSERT INTO sparksensordata.sensordata (name, time ,value) VALUES ('p100', dateof(now()), 0.65);
+INSERT INTO sparksensordata.sensordata (name, time ,value) VALUES ('p100', dateof(now()), 1.3);
+```
+
 ###Create A Solr Core
 By default, when you automatically generate resources, existing data is not re-indexed so that you can check and customize the resources before indexing. To override the default and reindex existing data, use the reindex=true option:
 ```
