@@ -75,7 +75,15 @@ dsetool create_core SparkSensoreData.SensorData generateResources=true reindex=t
 
 You can check that DSE Search is up and running sucessfully by going to ```http://[DSE node]:8983/solr/``` and running queries via the GUI.
 
+With CQL you can query the sensor data table using the primary key (name) and clustering column (time) like so:
 
+SELECT * FROM sparksensordata.sensordata WHERE name='p100' AND time>'2016-07-01 22:52:52';
+
+But you cant query on the value column because it isnt indexed.
+
+Solr integration allows you to search on any column, for example:
+
+SELECT * FROM sparksensordata.sensordata WHERE solr_query='{"q":"*:*",  "fq":["value:[1 TO *]"]}';
 
 ##Notes On ReST, Prepared Statements, And The Differences Between CQL And Solr
 
