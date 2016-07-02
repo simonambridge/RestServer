@@ -68,7 +68,7 @@ public class MainWS {
 	}
 
 	//////////////////////////
-	// CQL-Solr Query - JSON
+	// CQL Query - JSON
 	//////////////////////////
 	@GET
 	@Path("/json/")    // SA
