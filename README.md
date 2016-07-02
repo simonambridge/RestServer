@@ -64,16 +64,35 @@ The RestServer provides hooks to create entry points that can return either of t
 
 ##Set Up Solr with DSE
 
-We use dsetool this time to create a Solr core based on the table that we want to index. In this case it's ```SparkSensoreData.SensorData```.
+We use dsetool to create a Solr core based on the table that we want to index. In this case it's ```SparkSensoreData.SensorData```.
+
+This table is an example of a set of data from sensors. It is a simple table:
+Name - the anem of the device e.g. "p100" (Partition Key)
+Time - the time the event was received (CLustering Column)
+Value - the reading or value of the event
 
 In a production environment we would only index the columns that we would want to query on. Tip - the schema must exist to run this exercise. If you've jumped here then you've missed creating it.
 
+You can create the schema and pupulate the table with data by following this repo https://github.com/simonambridge/SparkSensorData
+
+If you dont fancy that then you can create the table like this:
+```
+CREATE TABLE sparksensordata.sensordata (
+    name text,
+    time timestamp,
+    value double,
+    PRIMARY KEY ((name), time)
+```
+    
+###Create A Solr Core
 By default, when you automatically generate resources, existing data is not re-indexed so that you can check and customize the resources before indexing. To override the default and reindex existing data, use the reindex=true option:
 ```
 dsetool create_core SparkSensoreData.SensorData generateResources=true reindex=true
 ```
 
 You can check that DSE Search is up and running sucessfully by going to ```http://[DSE node]:8983/solr/``` and running queries via the GUI.
+
+###Querying WIth Solr
 
 With CQL you can query the sensor data table using the primary key (name) and clustering column range scan (time) like so:
 ```
