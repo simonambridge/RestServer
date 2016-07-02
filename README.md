@@ -76,7 +76,6 @@ dsetool create_core SparkSensoreData.SensorData generateResources=true reindex=t
 You can check that DSE Search is up and running sucessfully by going to ```http://[DSE node]:8983/solr/``` and running queries via the GUI.
 
 With CQL you can query the sensor data table using the primary key (name) and clustering column range scan (time) like so:
-
 ```
 SELECT * FROM sparksensordata.sensordata WHERE name='p100' AND time>'2016-07-01 22:52:52';
 ```
@@ -84,19 +83,24 @@ SELECT * FROM sparksensordata.sensordata WHERE name='p100' AND time>'2016-07-01 
 But you cant query on the value column because it isn't indexed.
 
 Solr integration allows you to search on any column, for example, values greater than 1:
-
 ```
 SELECT * FROM sparksensordata.sensordata WHERE solr_query='{"q":"*:*",  "fq":["value:[1 TO *]"]}';
 ```
+
 Solr has lots of flexible searching options. 
 All events in the last day:
 ```
 SELECT * FROM sparksensordata.sensordata where solr_query='{"q":"name:p100",  "fq":["time:[NOW-1DAY TO *]"]}';
 ```
-OR a faceted search to build a distribution graph:
+Or a faceted search to build a distribution graph:
 ```
 SELECT * FROM sparksensordata.sensordata where solr_query='{"q":"name:p100", "facet":{"field":"value"}}';
 ```
+
+We can bucket those results using facet ranges:
+```
+ SELECT * FROM sparksensordata.sensordata where solr_query='{"q":"name:p100", "facet":{"range":"value", "range.start":-1, "range.end":5, "range.gap":0.1}}';
+ ```
 
 ##Notes On ReST, Prepared Statements, And The Differences Between CQL And Solr
 
