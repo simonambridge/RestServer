@@ -5,9 +5,13 @@
 ## Querying Data Using A ReST Web Interface
 
 A ReSTful web interface provides an API for calling programs to query the data in Cassandra.
-To use the web service, use the following url’s. These will return a json representation of the data using the ReST service.
 
-The sample queries are served by a web service written in Java. The code for this web service is provided in the repo.
+Because ReST calls are over HTTP we can also view the responses in a web browser.
+
+The web service is usually required to return data in JSON format. The examples in this repo will show you how to return a json representation of the data using the ReST service.
+
+The sample queries are served by a web service written in Java running on Jetty. The code for this web service is provided in the repo. Jetty will be downloaded and installed when you build the repo.
+
 The web service adopts a framework that separates the web, service and data access layers into individual, easily maintainable components.
 
 ##Pre-Requisites
@@ -44,22 +48,18 @@ Compile the code:
 $ mvn clean compile
 ```
 
-To start the web service use the command:
+To start the Jetty web service use the command:
 ```
 $ mvn jetty:run
 ```
-To bind to a specific interface or port (other than localhost and the default of 8080) use:
+By defualt the service will bind to port 8080 on localhost. To bind to a specific interface or port use:
 ```
 $ mvn jetty:run -DcontactPoints=<server IP address> -Djetty.port=<port number>
 ```
-For example - to run on a server with an IP of 10.0.0.4 and run the service on port 7001, and persist the web service after logging out use:
+For example - to run on a server with an IP of 10.0.0.4 and run the service on port 7001, and persist the web service after logging out of your terminal use:
 ```
 $ nohup mvn jetty:run -DcontactPoints=10.0.0.4 -Djetty.port=7001 &
 ```
-
-The RestServer provides hooks to create entry points that can return either of the following:
-* JSON
-* HTML
 
 
 ##Set Up Solr with DSE
@@ -168,7 +168,12 @@ And then bind it to the prepared statement:
 ResultSet resultSet = this.session.execute(getAllTransactionsByAmount.bind(solrBindString));
 ```			
 
-##Accessing the Interface
+##Accessing the ReST Server
+
+The ReST Server provides hooks to create entry points that can return either of the following:
+
+* JSON
+* HTML
 
 ###ReST Functions
 There a some sample ReST queries provided.
