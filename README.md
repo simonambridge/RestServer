@@ -178,7 +178,10 @@ The ReST Server provides hooks to create entry points that can return either of 
 
 ###ReST Functions
 There a some sample ReST queries provided.
-Data from the sensordata table rendered as JSON:
+
+Assuming that you're running on a single node you can use localhost (127.0.0.1) - otherwise substitute the IP address of the node where your Jetty process is running.
+
+Data from the ```sensordata``` table rendered as JSON:
 ```
 http://127.0.0.1:7001/restserver/rest/json
 ```
@@ -190,7 +193,7 @@ http://127.0.0.1:7001/restserver/rest/html
 ```
 ![Alt text](https://github.com/simonambridge/RestServer/blob/master/HTML_sensor_data.png "HTML formatted data Page")
 
-Assuming that you're running on a single node you can use localhost (127.0.0.1) - otherwise substitute the IP address of the node where your Jetty process is running.
+
 
 ##ReST Server Status Page
 Sometimes it would just be handy to know what the server is doing - is it broken or is my query broken? The ReST interface provides a handy status page. Both pages demonstrate additional useful features. 
