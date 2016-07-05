@@ -10,6 +10,8 @@ Because ReST calls are over HTTP we can also view the responses in a web browser
 
 The web service is usually required to return data in JSON format. The examples in this repo will show you how to return a json representation of the data using the ReST service.
 
+> There is also an example of returning data formatted in HTML if you want to build 'servlets' that display web pages.
+
 The sample queries are served by a web service written in Java running on Jetty. The code for this web service is provided in the repo. Jetty will be downloaded and installed when you build the repo.
 
 The web service adopts a framework that separates the web, service and data access layers into individual, easily maintainable components.
