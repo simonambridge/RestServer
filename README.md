@@ -182,13 +182,13 @@ Data from the sensordata table rendered as JSON:
 ```
 http://127.0.0.1:7001/restserver/rest/json
 ```
-![Alt text](https://github.com/simonambridge/RestServer/blob/master/JSON_Sensor_Data.png "JSON formatted data Page")
+![Alt text](https://github.com/simonambridge/RestServer/blob/master/JSON_sensor_Data.png "JSON formatted data Page")
 
 The same data returned with an HTML wrapper so as to create an HTML web page around the data:
 ```
 http://127.0.0.1:7001/restserver/rest/html
 ```
-![Alt text](https://github.com/simonambridge/RestServer/blob/master/HTML_Sensor_Data.png "HTML formatted data Page")
+![Alt text](https://github.com/simonambridge/RestServer/blob/master/HTML_sensor_Data.png "HTML formatted data Page")
 
 Assuming that you're running on a single node you can use localhost (127.0.0.1) - otherwise substitute the IP address of the node where your Jetty process is running.
 
