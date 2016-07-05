@@ -213,5 +213,5 @@ This page is generated as a ReST reponse in Java but the resposne is padded with
 ```
 http://127.0.0.1:7001/restserver/rest/status
 ```
-![Alt text](https://github.com/simonambridge/RestServer/blob/master/Java_Status.png "Java-generated HTML Status Page")
+![Alt text](https://github.com/simonambridge/RestServer/blob/master/Java_Status_page.png "Java-generated HTML Status Page")
 
