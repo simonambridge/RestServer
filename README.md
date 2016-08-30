@@ -72,9 +72,9 @@ We use dsetool to create a Solr core based on the table that we want to index. I
 
 This table is an example of a set of event (time series) data from sensors. It is a simple table:
 
-*Name - the name of the device e.g. "p100" (Partition Key)
-*Time - the time the event was received (Partition Key)
-*Value - the reading or value of the event
+* Name - the name of the device e.g. "p100" (Partition Key)
+* Time - the time the event was received (Partition Key)
+* Value - the reading or value of the event
 
 In a production environment we would only index the columns that we would want to query on. Tip - the schema must exist to run this exercise. If you've jumped here then you've missed creating it.
 
