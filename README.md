@@ -25,7 +25,7 @@ You'll need DataStax Enterprise (4.8.4 or above recommended) for the integrated 
 You will need DSE to be running in "SearchAnalytics" mode - meaning that both Solr and Spark are started when DSE starts. The default behaviour is to start only Cassandra, so to change this edit the default dse file ```/etc/default/dse```.
 
 Find where it says ```SPARK_ENABLED=0``` and change it to ```SPARK_ENABLED=1```.
-Do the same for ```SOLR_ENABLED```, setting it to one also.
+Do the same for ```SOLR_ENABLED```, setting it to 1 also.
 
 Save and exit the editor
 Restart DSE
