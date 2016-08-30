@@ -22,7 +22,7 @@ The web service adopts a framework that separates the web, service and data acce
 
 You'll need DataStax Enterprise (4.8.4 or above recommended) for the integrated Cassandra, Spark and Solr platform.
 
-You will need DSE to be running in "SearchAnalytics" mode - meaning that both Solr and Spark are started when DSE starts. The default behavious is to start only Cassandra, so to change this edit the default dse file ```/etc/default/dse```.
+You will need DSE to be running in "SearchAnalytics" mode - meaning that both Solr and Spark are started when DSE starts. The default behaviour is to start only Cassandra, so to change this edit the default dse file ```/etc/default/dse```.
 
 Find where it says ```SPARK_ENABLED=0``` and change it to ```SPARK_ENABLED=1```.
 Do the same for ```SOLR_ENABLED```, setting it to one also.
