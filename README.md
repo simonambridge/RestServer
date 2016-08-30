@@ -56,7 +56,7 @@ To start the Jetty web service use the command:
 ```
 $ mvn jetty:run
 ```
-By defualt the service will bind to port 8080 on localhost. To bind to a specific interface or port use:
+By default the service will bind to port 8080 on localhost. To bind to a specific interface or port use:
 ```
 $ mvn jetty:run -DcontactPoints=<server IP address> -Djetty.port=<port number>
 ```
