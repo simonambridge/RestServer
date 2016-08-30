@@ -76,11 +76,13 @@ This table is an example of a set of event (time series) data from sensors. It i
 * Time - the time the event was received (Partition Key)
 * Value - the reading or value of the event
 
-In a production environment we would only index the columns that we would want to query on. Tip - the schema must exist to run this exercise. If you've jumped here then you've missed creating it.
+In a production environment we would only index the columns that we would want to query on. 
 
-You can create the schema and pupulate the table with data by following this repo https://github.com/simonambridge/SparkSensorData
+Tip - the schema must exist to run this exercise. If you've jumped here then you've missed creating it.
 
-If you dont fancy that then you can create the table like this:
+If you haven't already created the schema and populated it with some sample data you can do it by following this repo https://github.com/simonambridge/SparkSensorData
+
+If you dont fancy doing that then you can simply and quickly create/populate the table like this:
 ```
 CREATE TABLE sparksensordata.sensordata (
     name text,
@@ -89,7 +91,7 @@ CREATE TABLE sparksensordata.sensordata (
     PRIMARY KEY ((name), time)
 ```
 
-Yiu can manually insert records to play with using a statement like this:
+You can manually insert some sample records to play with using a statement like this:
 ```
 INSERT INTO sparksensordata.sensordata (name, time ,value) VALUES ('p100', dateof(now()), 1);
 INSERT INTO sparksensordata.sensordata (name, time ,value) VALUES ('p100', dateof(now()), 0.65);
