@@ -28,7 +28,9 @@ Find where it says ```SPARK_ENABLED=0``` and change it to ```SPARK_ENABLED=1```.
 Do the same for ```SOLR_ENABLED```, setting it to 1 also.
 
 Save and exit the editor
+
 Restart DSE
+
 Run ```dsetool status```. You should see SearchAnalytics as your DC/workload type:
 
 ```
